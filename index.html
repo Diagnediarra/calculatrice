@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculatrice</title>
+    <style>
+        /* Style pour les boutons */
+        button {
+          font-size: 20px;
+          padding: 10px;
+          width: 50px;
+        }
+      </style>
+     </head>
+      <body>
+        <h1>Calculatrice</h1>
+        <form>
+          <input type="text" id="result" name="result" readonly>
+          <br>
+          <button type="button" onclick="addNumber('7')">7</button>
+          <button type="button" onclick="addNumber('8')">8</button>
+          <button type="button" onclick="addNumber('9')">9</button>
+          <button type="button" onclick="addOperator('+')">+</button>
+          <br>
+          <button type="button" onclick="addNumber('4')">4</button>
+          <button type="button" onclick="addNumber('5')">5</button>
+          <button type="button" onclick="addNumber('6')">6</button>
+          <button type="button" onclick="addOperator('-')">-</button>
+          <br>
+          <button type="button" onclick="addNumber('1')">1</button>
+      <button type="button" onclick="addNumber('2')">2</button>
+      <button type="button" onclick="addNumber('3')">3</button>
+      <button type="button" onclick="addOperator('*')">*</button>
+      <br>
+      <button type="button" onclick="addNumber('0')">0</button>
+      <button type="button" onclick="addOperator('/')">/</button>
+      <button type="button" onclick="calculate()">=</button>
+      <button type="button" onclick="clear()">C</button>
+    </form>
+    <script>
+        let currentNumber = '';
+        let currentOperator = '';
+        let currentResult = 0;
+        
+        function addNumber(number) {
+          currentNumber += number;
+          document.getElementById('result').value = currentNumber;
+        }
+        
+        function addOperator(operator) {
+          currentOperator = operator;
+          currentResult = Number(currentNumber);
+          currentNumber = '';
+        }
+        function calculate() {
+        let secondNumber = Number(currentNumber);
+        switch(currentOperator) {
+          case '+':
+            currentResult += secondNumber;
+            break;
+          case '-':
+            currentResult -= secondNumber;
+            break;
+          case '*':
+            currentResult *= secondNumber;
+            break;
+          case '/':
+            currentResult /= secondNumber;
+            break;
+        }
+        document.getElementById('result').value = currentResult;
+        currentNumber = '';
+      }
+      
+      function clear() {
+        currentNumber = '';
+        currentOperator = '';
+        currentResult = 0;
+        document.getElementById('result').value = '';
+      }
+    </script>
+    
+  </body>
+</html
+    <script src="style.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <P>
+    
+    </P>
+    
+</body>
+</html>
